@@ -1,23 +1,26 @@
-import React from "react";
-import {
-  Link,
-  Route,
-  Router,
-  RouterProvider,
-  createBrowserRouter,
-  useNavigate,
-} from "react-router-dom";
-import Root from "./pages/root";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Root from './pages/root';
 
 const Routing = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: '/root',
       element: <Root />,
     },
+    {
+      path: '/about',
+      element: <About />,
+    },
+    {
+      path: '/contact',
+      element: <Contact />,
+    },
   ]);
-  return <RouterProvider router={router} />
-  
+  return <RouterProvider router={router} />;
 };
 function Home() {
   return <h2>Home</h2>;
