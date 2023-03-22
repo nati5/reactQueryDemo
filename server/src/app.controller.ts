@@ -1,10 +1,15 @@
-import { Controller, Get, Render } from '@nestjs/common';
-
+import { Controller, Get, Render } from "@nestjs/common";
+import { readJson } from "../consts/utilities";
 @Controller()
 export class AppController {
-  @Get()
-  @Render('index')
+  @Get()  
   root() {
-    return { message: 'Hello world!' };
+    return { data: "bye" };
+  }
+
+  @Get("/movies")
+ async getMovies() {
+    const movies =  await readJson('movies')
+    return { data: movies};
   }
 }
